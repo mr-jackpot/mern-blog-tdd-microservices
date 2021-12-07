@@ -26,22 +26,22 @@ describe('landing page tests', () => {
     })
 
     it('has a login input box', () => {
-      cy.get('.loginBox')
+      cy.get('[data-cy=username-login-box]')
         .should('exist')
     })
 
     it('has a password input box', () => {
-      cy.get('.passwordBox')
+      cy.get('[data-cy=password-login-box]')
         .should('exist')
     })
 
     it('the inputs are wrapped in a form', () => {
-      cy.get('.loginForm')
+      cy.get('[data-cy=login-form-wrapper]')
       .should('exist')
     })
 
     it('the form has a submit button', () => {
-      cy.get('.submitButton')
+      cy.get('[data-cy=login-form-submit]')
       .should('exist')
     })
 })
