@@ -34,5 +34,15 @@ describe('landing page tests', () => {
       cy.get('.passwordBox')
         .should('exist')
     })
+
+    it('the inputs are wrapped in a form', () => {
+      cy.get('.loginForm')
+      .should('exist')
+    })
+
+    it('the form has a submit button', () => {
+      cy.get('.submitButton')
+      .should('exist')
+    })
 })
 
