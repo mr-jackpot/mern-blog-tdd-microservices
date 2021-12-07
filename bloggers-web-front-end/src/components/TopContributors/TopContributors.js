@@ -4,7 +4,7 @@ import './TopContributors.css'
 const TopContributors = () => {
 
     return (
-        <ol className="topContributors">
+        <ol className="topContributors" data-cy="top-contributors">
             <li>one</li>
             <li>two</li>
             <li>three</li>

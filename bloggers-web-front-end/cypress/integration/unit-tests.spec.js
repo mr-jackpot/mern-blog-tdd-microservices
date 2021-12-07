@@ -10,7 +10,7 @@ describe('frontend exists', () => {
     })
 
     it('exists', () => {
-      cy.get('.App-logo').should('exist')
+      cy.get('[data-cy=app-logo]').should('exist')
     })
 });
 
@@ -21,7 +21,8 @@ describe('landing page tests', () => {
 
     // are those users displayed?
     it('checks top 5 contributors exist', () => {
-      cy.get('.topContributors li')
+      cy.get('[data-cy=top-contributors]')
+        .find('li')
         .should('have.length', 5)
     })
 
