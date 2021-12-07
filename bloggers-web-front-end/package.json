@@ -10,7 +10,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "npx cypress run --spec 'cypress/integration/unit-tests.spec.js'",
     "eject": "react-scripts eject",
     "cypress:open": "cypress open"
   },
