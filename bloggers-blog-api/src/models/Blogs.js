@@ -2,15 +2,15 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const BlogSchema = new Schema({
-  username: {
+  user: {
     type: String,
     required: true,
   },
-  password: {
-    type: String,
+  date: {
+    type: Date,
     required: true,
   },
-  accessLevel: {
+  blog: {
     type: String,
     required: true,
   },
