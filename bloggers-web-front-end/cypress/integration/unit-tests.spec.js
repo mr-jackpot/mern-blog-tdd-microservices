@@ -10,7 +10,40 @@ describe('frontend exists', () => {
     })
 
     it('exists', () => {
-      cy.get('.App-logo').should('exist')
+      cy.get('[data-cy=app-logo]').should('exist')
     })
 });
+
+describe('landing page tests', () => {
+    beforeEach(() => {
+      cy.visit('http://localhost:3000')
+    })
+
+    // are those users displayed?
+    it('checks top 5 contributors exist', () => {
+      cy.get('[data-cy=top-contributors]')
+        .find('li')
+        .should('have.length', 5)
+    })
+
+    it('has a login input box', () => {
+      cy.get('[data-cy=username-login-box]')
+        .should('exist')
+    })
+
+    it('has a password input box', () => {
+      cy.get('[data-cy=password-login-box]')
+        .should('exist')
+    })
+
+    it('the inputs are wrapped in a form', () => {
+      cy.get('[data-cy=login-form-wrapper]')
+      .should('exist')
+    })
+
+    it('the form has a submit button', () => {
+      cy.get('[data-cy=login-form-submit]')
+      .should('exist')
+    })
+})
 
