@@ -8,4 +8,6 @@ router.get('/', (req, res) => {
 
 router.get('/db', controller.checkDBStatus)
 
+router.get('/findblogs', controller.findAllBlogs)
+
 module.exports = router;
