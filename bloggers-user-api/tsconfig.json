@@ -2,7 +2,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "target": "es6",
-    "rootDir": "/",
+    "rootDir": "bloggers-user-api/src/",
     "esModuleInterop": true
   }
 }

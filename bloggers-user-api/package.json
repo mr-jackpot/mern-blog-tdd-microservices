@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "npx cypress run --spec 'cypress/integration/user-api.spec.js'",
-    "start": "nodemon server.ts"
+    "start": "nodemon src/server.ts"
   },
   "author": "",
   "license": "ISC",
