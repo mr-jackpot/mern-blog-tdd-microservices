@@ -1,18 +1,13 @@
 import express from 'express';
 
-//enable env file
+//Globally enable env file
 require('dotenv').config()
-const controller = require('../src/controller/controller.js')
 
 const app = express();
 const port = 3010;
+const router = require('./router/router')
 
-app.get('api/dbConnectionCheck', controller.checkDBStatus)
-
-app.get(`/api/user`, (req, res) => {
-      res.send("Hello from user api!")
-    } 
-  )
+app.use('/', router);
 
 app.listen(port, () => {
   console.log(`Application is running on port ${port} 🚀.`);
