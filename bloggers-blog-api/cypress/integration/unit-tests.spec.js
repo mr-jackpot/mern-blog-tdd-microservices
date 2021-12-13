@@ -19,3 +19,17 @@ describe('Testing the database READ operation', () => {
     )
   })
 })
+
+describe('Testing the database CREATE operation', () => {
+  it('creates a new record'), () => {
+    const username = require("crypto").randomBytes(8).toString('hex')
+    cy.request('POST', '/blogs', 
+      {
+        "username": username,
+        "date": "9999-01-01T00:00:00.000Z",
+        "blog": "Hello CREATE test!"
+      
+      }).its('body').should('include', {"status":404})
+      
+  }
+})

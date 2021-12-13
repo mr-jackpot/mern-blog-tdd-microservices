@@ -10,4 +10,8 @@ router.get('/db', controller.checkDBStatus)
 
 router.get('/findblogs', controller.findAllBlogs)
 
+router.post('/blogs', (req, res) => {
+  res.send({status:404})
+})
+
 module.exports = router;
