@@ -21,7 +21,7 @@ describe('Testing the database READ operation', () => {
 })
 
 describe('Testing the database CREATE operation', () => {
-  it('creates a new record'), () => {
+  it('creates a new record', () => {
     const username = require("crypto").randomBytes(8).toString('hex')
     cy.request('POST', '/blogs', 
       {
@@ -29,7 +29,9 @@ describe('Testing the database CREATE operation', () => {
         "date": "9999-01-01T00:00:00.000Z",
         "blog": "Hello CREATE test!"
       
-      }).its('body').should('include', {"status":404})
-      
-  }
+      }).then((response) => {
+        expect(response.status).to.eq(200)
+        expect(response.body).to.have.property('_id')
+      })
+  })
 })
