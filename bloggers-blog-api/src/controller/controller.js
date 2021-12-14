@@ -34,4 +34,17 @@ const createOneBlog = (req, res) => {
   });
 }
 
-module.exports = {checkDBStatus, findAllBlogs, createOneBlog}
+const deleteOneBlog = (req, res) => {
+  Blog.findByIdAndRemove(req.body.id)
+  .then( dbProduct => {
+    if (dbProduct !== null)
+        res.json(dbProduct)
+    if (dbProduct === null)
+        res.json(`record ID ${req.body.id} not found`)
+  })
+  .catch( err => {
+    res.json(err)
+  });
+}
+
+module.exports = {checkDBStatus, findAllBlogs, createOneBlog, deleteOneBlog}
