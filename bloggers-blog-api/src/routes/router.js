@@ -8,4 +8,9 @@ router.get('/', (req, res) => {
 
 router.get('/db', controller.checkDBStatus)
 
+router.get('/findblogs', controller.findAllBlogs)
+
+router.post('/blogs', controller.createOneBlog)
+router.delete('/blogs', controller.deleteOneBlog)
+
 module.exports = router;
