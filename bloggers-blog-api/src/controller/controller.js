@@ -13,6 +13,25 @@ const findAllBlogs = (req, res) => {
   .then(dbProduct => {
       res.send(dbProduct)
   })
+  .catch( err => {
+    res.json(err)
+  })
 }
 
-module.exports = {checkDBStatus, findAllBlogs}
+const createOneBlog = (req, res) => {
+    Blog.create(
+    {
+        user: req.body.user,
+        date: req.body.date,
+        blog: req.body.blog  
+    }
+  )
+  .then( dbProduct => {
+    res.json(dbProduct)
+  })
+  .catch( err => {
+    res.json(err)
+  });
+}
+
+module.exports = {checkDBStatus, findAllBlogs, createOneBlog}
