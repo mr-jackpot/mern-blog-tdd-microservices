@@ -39,20 +39,19 @@ describe('Testing the database CREATE operation API', () => {
 
 describe('Testing the database DELETE operation', () => {
   it('deletes a record', () => {
-    const id = cy.request('POST', '/blogs', 
+    cy.request('POST', '/blogs', 
       {
         "user": "DELETE_TEST_USER",
         "date": "9999-01-01T00:00:00.000Z",
         "blog": "Hello DELETE test!"
       
-      }).then((response) => {return response.body._id})
-    
-    cy.wait(2000)
+      }).then((blog) => {
 
-    cy.request('DELETE', '/blogs', {"id": id})
-    .then((response) => {
-      expect(response.status).to.eq(200)
-      expect(response.body).to.have.property('_id')
+        cy.request('DELETE', '/blogs', {id: blog.body._id})
+        .then((response) => {
+          expect(response.status).to.eq(200)
+          expect(response.body).to.have.property('_id')
+        })
+      })
     })
-  })
 })
