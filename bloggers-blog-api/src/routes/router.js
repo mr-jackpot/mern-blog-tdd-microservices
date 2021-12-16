@@ -11,6 +11,9 @@ router.get('/db', controller.checkDBStatus)
 router.get('/findblogs', controller.findAllBlogs)
 
 router.post('/blogs', controller.createOneBlog)
-router.delete('/blogs', controller.deleteOneBlog)
+
+router.delete('/blogs/:id', controller.deleteOneBlog)
+
+router.put('/blogs/:id', controller.updateOneBlog)
 
 module.exports = router;
