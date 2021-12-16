@@ -18,4 +18,5 @@ router.delete('/blogs/:id', controller.deleteOneBlog) // DELETE on this route wi
 
 router.put('/blogs/:id', controller.updateOneBlog) // PUT on this route will update the blog ID specified, with data in the payload.
 
+// Exporting router for use with Express app.
 module.exports = router;
