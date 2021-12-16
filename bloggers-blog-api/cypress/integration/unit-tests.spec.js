@@ -6,13 +6,13 @@ describe('Testing server status API', () => {
 
 describe('Testing the database status API', () => {
   it('returns a success code', () => {
-    cy.request('/db').its('body').should('include', {"status":1})
+    cy.request('/api/db').its('body').should('include', {"status":1})
   })
 })
 
 describe('Testing the blog READ operation API', () => {
   it('finds all blogs', () => {
-    cy.request('/blogs').its('body').its('0').should('include', 
+    cy.request('/api/blogs').its('body').its('0').should('include', 
       {
           "_id": "61b336a357fe44a6a5de10ff"
       }
@@ -20,7 +20,7 @@ describe('Testing the blog READ operation API', () => {
   })
 
   it('finds one blog', () => {
-    cy.request('/blogs/61b8cf869313e865a4ecdc02')
+    cy.request('/api/blogs/61b8cf869313e865a4ecdc02')
     .then((blog) => {
       expect(blog.status).to.eq(200)
       expect(blog.body._id).to.eq('61b8cf869313e865a4ecdc02')
@@ -31,7 +31,7 @@ describe('Testing the blog READ operation API', () => {
 describe('Testing the blog CREATE operation API', () => {
   it('creates a new record', () => {
     const user = require("crypto").randomBytes(8).toString('hex')
-    cy.request('POST', '/blogs', 
+    cy.request('POST', '/api/blogs', 
       {
         "user": user,
         "date": "9999-01-01T00:00:00.000Z",
@@ -40,7 +40,7 @@ describe('Testing the blog CREATE operation API', () => {
       }).then((response) => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('_id')
-        cy.request('DELETE', `/blogs/${response.body._id}`)
+        cy.request('DELETE', `/api/blogs/${response.body._id}`)
       })
   })
 })
@@ -48,7 +48,7 @@ describe('Testing the blog CREATE operation API', () => {
 
 describe('Testing the blog DELETE operation api', () => {
   it('deletes a record', () => {
-    cy.request('POST', '/blogs', 
+    cy.request('POST', '/api/blogs', 
       {
         "user": "DELETE_TEST_USER",
         "date": "9999-01-01T00:00:00.000Z",
@@ -56,7 +56,7 @@ describe('Testing the blog DELETE operation api', () => {
       
       }).then((blog) => {
 
-        cy.request('DELETE', `/blogs/${blog.body._id}`)
+        cy.request('DELETE', `/api/blogs/${blog.body._id}`)
         .then((response) => {
           expect(response.status).to.eq(200)
           expect(response.body).to.have.property('_id')
@@ -69,7 +69,7 @@ describe('Testing the blog DELETE operation api', () => {
 describe('Testing the blog UPDATE operation API', () => {
   it('updates the specified record', () => {
     const blogContent = require("crypto").randomBytes(8).toString('hex')
-    cy.request('PUT', '/blogs/61b336a357fe44a6a5de10ff',
+    cy.request('PUT', '/api/blogs/61b336a357fe44a6a5de10ff',
     {
       "date": "9999-01-01T00:00:00.000Z",
       "blog": blogContent
