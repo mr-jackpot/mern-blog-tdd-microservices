@@ -12,11 +12,19 @@ describe('Testing the database status API', () => {
 
 describe('Testing the blog READ operation API', () => {
   it('finds all blogs', () => {
-    cy.request('/findblogs').its('body').its('0').should('include', 
+    cy.request('/blogs').its('body').its('0').should('include', 
       {
           "_id": "61b336a357fe44a6a5de10ff"
       }
     )
+  })
+
+  it('finds one blog', () => {
+    cy.request('/blogs/61b8cf869313e865a4ecdc02')
+    .then((blog) => {
+      expect(blog.status).to.eq(200)
+      expect(blog.body._id).to.eq('61b8cf869313e865a4ecdc02')
+    })
   })
 })
 
@@ -32,6 +40,7 @@ describe('Testing the blog CREATE operation API', () => {
       }).then((response) => {
         expect(response.status).to.eq(200)
         expect(response.body).to.have.property('_id')
+        cy.request('DELETE', `/blogs/${response.body._id}`)
       })
   })
 })
