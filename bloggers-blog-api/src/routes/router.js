@@ -4,7 +4,7 @@ const router = express.Router();
 
 router.get('/', (req, res) => {
     res.send({status:1});
-}) // GET on this route will return back a node server status.
+}) // GET on this route will return back a node server status. If it does not return anything then its dead.
 
 router.get('/db', controller.checkDBStatus) // GET on this route will return back a mongoDB connection status.
 
