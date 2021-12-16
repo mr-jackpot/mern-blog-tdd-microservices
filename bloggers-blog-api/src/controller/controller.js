@@ -35,7 +35,7 @@ const createOneBlog = (req, res) => {
 }
 
 const deleteOneBlog = (req, res) => {
-  Blog.findByIdAndRemove(req.body.id)
+  Blog.findByIdAndRemove(req.params.id)
   .then( dbProduct => {
     if (dbProduct !== null)
         res.json(dbProduct)
@@ -47,4 +47,21 @@ const deleteOneBlog = (req, res) => {
   });
 }
 
-module.exports = {checkDBStatus, findAllBlogs, createOneBlog, deleteOneBlog}
+const updateOneBlog = (req, res) => {
+  Blog.findByIdAndUpdate(req.params.id, 
+    { 
+      date: req.body.date,
+      blog: req.body.blog  
+    }, {new: true}) // {new: true} - returns the UPDATED document. By deafult this mongoose function will return the original.
+    .then( dbProduct => {
+      if (dbProduct !== null)
+          res.json(dbProduct)
+      if (dbProduct === null)
+          res.json(`record ID ${req.body.id} not found`)
+    })
+    .catch( err => {
+      res.json(err)
+    });
+}
+
+module.exports = {checkDBStatus, findAllBlogs, createOneBlog, deleteOneBlog, updateOneBlog}
