@@ -1,6 +1,7 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
+// Blueprint for a Blog document inside the MongoDB collection.
 const BlogSchema = new Schema({
   user: {
     type: String,
