@@ -1,5 +1,3 @@
-/// <reference types="cypress" />
-
 describe('frontend exists', () => {
     beforeEach(() => {
       // Cypress starts out with a blank slate for each test
@@ -10,7 +8,7 @@ describe('frontend exists', () => {
     })
 
     it('exists', () => {
-      cy.get('[data-cy=app-logo]').should('exist')
+      cy.get('[data-cy=app-header]').should('exist')
     })
 });
 
