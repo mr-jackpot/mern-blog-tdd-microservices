@@ -1,16 +1,18 @@
-import logo from './logo.svg';
-import TopContributors from './components/TopContributors/TopContributors';
 import './App.css';
-import Login from './components/Login/Login';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import HomePage from './pages/HomePage/home';
+import BlogPage from './pages/BlogPage/blogs';
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header" data-cy="app-header">
-        <TopContributors />
-        <Login />
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 

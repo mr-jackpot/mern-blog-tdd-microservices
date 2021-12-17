@@ -45,3 +45,14 @@ describe('landing page tests', () => {
     })
 })
 
+describe('blogs page exists', () => {
+  
+  beforeEach(() => {
+    cy.visit('http://localhost:3000')
+  })
+  
+  it('loads the page', () => {
+    cy.get('[data-cy=blog-list]')
+  })
+})
+
