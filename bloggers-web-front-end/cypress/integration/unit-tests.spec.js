@@ -7,12 +7,14 @@ describe('home page exists', () => {
       cy.visit('http://localhost:3000')
     })
 
-    it('home page body is displayed', () => {
-      cy.contains('This is the homepage body')
+    it('home page blog button is displayed', () => {
+      cy.get('[data-cy=home-page-blog-button]')
+      .should('be.visible')
     })
 
-    it('home page header is displayed', () => {
-      cy.contains('This is the homepage header')
+    it('home page user button is displayed', () => {
+      cy.get('[data-cy=home-page-user-button]')
+      .should('be.visible')
     })
 
 });

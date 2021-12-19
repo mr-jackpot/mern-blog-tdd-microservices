@@ -11,9 +11,10 @@
 }
 
 .selector-button {
-    padding:100px;
+    padding: 100px;
     font-size: x-large;
     border-radius: 8px;
+    border: 1px solid black;
 }
 
 .selector-button:hover {
