@@ -1,4 +1,4 @@
-describe('frontend exists', () => {
+describe('home page exists', () => {
     beforeEach(() => {
       // Cypress starts out with a blank slate for each test
       // so we must tell it to visit our website with the `cy.visit()` command.
@@ -7,9 +7,14 @@ describe('frontend exists', () => {
       cy.visit('http://localhost:3000')
     })
 
-    it('loads the page', () => {
-      cy.contains('Hello home page!')
+    it('home page body is displayed', () => {
+      cy.contains('This is the homepage body')
     })
+
+    it('home page header is displayed', () => {
+      cy.contains('This is the homepage header')
+    })
+
 });
 
 
