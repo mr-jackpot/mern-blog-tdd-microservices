@@ -1,0 +1,33 @@
+.Header {
+    padding: 20px;
+    text-align: center;
+    background-color: cornflowerblue;
+    font-size: x-large;
+}
+
+.Body {
+    display: flex;  
+    justify-content: space-around;
+}
+
+.selector-button {
+    padding: 100px;
+    font-size: x-large;
+    border-radius: 8px;
+    border: 1px solid black;
+}
+
+.selector-button:hover {
+    background-color: #1e293b;
+    color: #fff;
+}
+
+#blog-button {
+    order: 0;
+    flex-grow: 1;
+}
+
+#user-button {
+    order: 1;
+    flex-grow: 1;
+}

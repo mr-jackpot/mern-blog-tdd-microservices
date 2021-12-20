@@ -1,30 +1,18 @@
-import logo from './logo.svg';
-import TopContributors from './components/TopContributors/TopContributors';
 import './App.css';
-import Login from './components/Login/Login';
+import {Routes, Route, BrowserRouter} from 'react-router-dom';
+import HomePage from './pages/HomePage/home';
+import BlogPage from './pages/BlogPage/blogs';
+
 
 function App() {
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <TopContributors />
-        <Login />
-        <img src={logo} 
-          data-cy="app-logo"
-          className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/blog" element={<BlogPage />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
