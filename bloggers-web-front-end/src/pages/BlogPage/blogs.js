@@ -2,6 +2,7 @@
 
 import React from "react";
 import './blogs.css'
+import BlogCard from "../../components/BlogCard/cards";
 
 
 const BlogPage = () => {
@@ -11,8 +12,8 @@ const BlogPage = () => {
             <div className="Header" data-cy="blog-page-header">
                 <p1>This is the blogpage header</p1>
             </div>
-            <div className="blog-container" data-cy="blog-page-body">
-                <p1>This is the blogpage body</p1>
+            <div className="blog-page-body" data-cy="blog-page-body">
+                <BlogCard />
             </div>
         </div>
     )

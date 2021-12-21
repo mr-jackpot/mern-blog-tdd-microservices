@@ -17,10 +17,18 @@ describe('home page exists', () => {
       .should('be.visible')
     })
 
+    it('blog button navigates to the blog page', () => {
+      cy.get('[data-cy=home-page-blog-button]').click()
+      cy.location('pathname').should('eq', '/blog')
+      cy.go('back')
+    })
+      
+
     it('home page user button is displayed', () => {
       cy.get('[data-cy=home-page-user-button]')
       .should('be.visible')
     })
+
 });
 
 

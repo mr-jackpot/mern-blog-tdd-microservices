@@ -5,7 +5,7 @@
     font-size: x-large;
 }
 
-.blog-container {
+.blog-page-body {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
@@ -14,8 +14,4 @@
     
     background-color: green;  
     padding: 50px;
-}
-
-.blog {
-    background-color: yellow;
 }

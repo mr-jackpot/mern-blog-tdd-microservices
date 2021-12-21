@@ -23,9 +23,10 @@ const HomePage = () => {
             </div>
             <div className="Body" data-cy="home-page-body">
                 <Button variant="btn btn-success" data-cy="home-page-blog-button" className="selector-button" 
-                    id="blog-button" onClick={routeChange}>Visit the blogs</Button>
+                    id="blog-button" onClick={routeChange}>View latest blog posts</Button>
+                    
                 <Button variant="btn btn-success" data-cy="home-page-user-button" className="selector-button" 
-                    id="user-button"></Button>
+                    id="user-button">Search all users</Button>
             </div>
         </div>
     )

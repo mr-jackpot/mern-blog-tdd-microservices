@@ -1,0 +1,35 @@
+.blog-container {
+    background-color: yellow;
+    padding: 10px;
+}
+
+.container-header {
+    display: flex;
+    align-content: space-around;
+    padding-bottom: 5px;
+    
+}
+
+.header-user {
+    border-style: solid;
+    border-width: thin;
+    margin-right: 1px;
+    padding: 5px;
+}
+
+.header-date {
+    border-style: solid;
+    border-width: thin;
+    margin-left: 1px;
+    padding: 5px;
+}
+
+.container-body {
+
+}
+
+.body-blog {
+    border-style: solid;
+    border-width: thin;
+    padding: 5px;
+}
