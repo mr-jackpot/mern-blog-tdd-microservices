@@ -1,6 +1,6 @@
 // blogs page
 
-import React from "react";
+import React, { useEffect } from "react";
 import axios from 'axios'
 import './blogs.css'
 import BlogCard from "../../components/BlogCard/cards";
@@ -47,12 +47,14 @@ const BlogPage = () => {
         return render;
       }
 
+    useEffect(() => {
+      load();
+    })
     return (
         
         <div> 
             <div className="Header" data-cy="blog-page-header">
                 <p1>This is the blogpage header</p1>
-                <Button variant="btn btn-success" onClick={load}>View latest blog posts</Button>
             </div>
             <div className="blog-page-body" data-cy="blog-page-body">
                 {displayBlogs(cardData)}
