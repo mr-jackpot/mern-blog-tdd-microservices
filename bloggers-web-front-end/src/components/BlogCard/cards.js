@@ -8,11 +8,11 @@ const BlogCard = (props) => {
     return (
         <div className="blog-container">
             <div className="container-header">
-                <div className="header-user"> User{props.user} </div>
-                <div className="header-date"> Date{props.date} </div>
+                <div className="header-user"> {props.user} </div>
+                <div className="header-date"> {props.date} </div>
             </div>
             <div className="container-body">
-                <div className="body-blog"> Blog{props.blog} </div>
+                <div className="body-blog"> {props.blog} </div>
             </div>
         </div>
     )}
