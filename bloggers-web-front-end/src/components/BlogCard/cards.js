@@ -6,7 +6,7 @@ const BlogCard = (props) => {
 
     if (!props.err) {
     return (
-        <div className="blog-container">
+        <div className="blog-container" data-cy="blog-container">
             <div className="container-header">
                 <div className="header-user"> {props.user} </div>
                 <div className="header-date"> {props.date} </div>

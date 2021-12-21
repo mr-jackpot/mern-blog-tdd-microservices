@@ -4,8 +4,6 @@ import React, { useEffect } from "react";
 import axios from 'axios'
 import './blogs.css'
 import BlogCard from "../../components/BlogCard/cards";
-import { Button } from 'react-bootstrap';
-
 
 const BlogPage = () => {
 
@@ -50,8 +48,8 @@ const BlogPage = () => {
     useEffect(() => {
       load();
     })
-    return (
-        
+    
+    return (  
         <div> 
             <div className="Header" data-cy="blog-page-header">
                 <p1>This is the blogpage header</p1>

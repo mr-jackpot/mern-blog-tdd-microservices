@@ -47,5 +47,10 @@ describe('blogs page exists', () => {
     cy.get('[data-cy=blog-page-body]')
     .should('be.visible')
   })
+
+  it('should display a blog post', () => {
+    cy.get('[data-cy=blog-container]')
+    .should('be.visible')
+  })
 })
 
