@@ -3,16 +3,21 @@ import './cards.css'
 
 const BlogCard = (props) => {
 
+
+    if (!props.err) {
     return (
         <div className="blog-container">
             <div className="container-header">
-                <div className="header-user"> Name: Adam Heeps </div>
-                <div className="header-date"> Date: 21-12-2021 </div>
+                <div className="header-user"> User{props.user} </div>
+                <div className="header-date"> Date{props.date} </div>
             </div>
             <div className="container-body">
-                <div className="body-blog"> This is my blog. </div>
+                <div className="body-blog"> Blog{props.blog} </div>
             </div>
         </div>
     )}
+    
+    return (<div className="blog-card-error">{props.err}</div>) 
+}
 
 export default BlogCard;
