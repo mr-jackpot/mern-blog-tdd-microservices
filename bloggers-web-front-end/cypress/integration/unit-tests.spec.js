@@ -16,7 +16,6 @@ describe('home page exists', () => {
       cy.get('[data-cy=home-page-user-button]')
       .should('be.visible')
     })
-
 });
 
 
