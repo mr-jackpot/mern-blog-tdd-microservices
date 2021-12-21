@@ -1,7 +1,8 @@
 .Header {
     padding: 20px;
     text-align: center;
-    background-color: cornflowerblue;
+    background-color:royalblue;
+    color: white;
     font-size: x-large;
 }
 
@@ -9,6 +10,6 @@
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    background-color: green;  
+    background-color:lightgray; 
     padding: 50px;
 }
