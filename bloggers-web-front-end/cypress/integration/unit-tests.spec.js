@@ -7,6 +7,11 @@ describe('home page exists', () => {
       cy.visit('http://localhost:3000')
     })
 
+    it('header is displayed', () => {
+      cy.get('[data-cy=home-page-header]')
+      .should('be.visible')
+    })
+
     it('home page blog button is displayed', () => {
       cy.get('[data-cy=home-page-blog-button]')
       .should('be.visible')
@@ -25,8 +30,14 @@ describe('blogs page exists', () => {
     cy.visit('http://localhost:3000/blog')
   })
   
-  it('loads the page', () => {
-    cy.contains('Hello blog page!')
+  it('header is displayed', () => {
+    cy.get('[data-cy=blog-page-header]')
+    .should('be.visible')
+  })
+
+  it('body container is displayed', () => {
+    cy.get('[data-cy=blog-page-body]')
+    .should('be.visible')
   })
 })
 

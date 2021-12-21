@@ -1,0 +1,21 @@
+.Header {
+    padding: 20px;
+    text-align: center;
+    background-color: cornflowerblue;
+    font-size: x-large;
+}
+
+.blog-container {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    background-color: green;  
+    padding: 50px;
+}
+
+.blog {
+    background-color: yellow;
+}
