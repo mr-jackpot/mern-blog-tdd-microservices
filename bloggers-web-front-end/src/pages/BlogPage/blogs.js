@@ -14,6 +14,8 @@ const BlogPage = () => {
             </div>
             <div className="blog-page-body" data-cy="blog-page-body">
                 <BlogCard />
+                <BlogCard />
+                <BlogCard />
             </div>
         </div>
     )
