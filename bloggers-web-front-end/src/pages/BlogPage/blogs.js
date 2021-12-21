@@ -15,10 +15,6 @@ const BlogPage = () => {
           .then((res) => {
             const data = res.data
             const objArr = []
-    
-            if (res.data.error != null) {
-                return setCardData(err);
-            }
 
             data.map((arr) => {
               objArr.push({
@@ -39,7 +35,7 @@ const BlogPage = () => {
             user={x.user} 
             date={x.date} 
             blog={x.blog} 
-            err={x.err}/>) 
+            err={x.error}/>) 
         })
     
         return render;

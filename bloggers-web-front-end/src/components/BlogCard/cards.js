@@ -4,7 +4,7 @@ import './cards.css'
 const BlogCard = (props) => {
 
 
-    if (!props.err) {
+    if (props.user !== null) {
     return (
         <div className="blog-container" data-cy="blog-container">
             <div className="container-header">
@@ -17,7 +17,7 @@ const BlogCard = (props) => {
         </div>
     )}
     
-    return (<div className="blog-card-error">{props.err}</div>) 
+    return (<div className="blog-card-error">Error. Please check browser console.</div>) 
 }
 
 export default BlogCard;
