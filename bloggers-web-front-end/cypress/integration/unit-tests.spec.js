@@ -7,15 +7,28 @@ describe('home page exists', () => {
       cy.visit('http://localhost:3000')
     })
 
+    it('header is displayed', () => {
+      cy.get('[data-cy=home-page-header]')
+      .should('be.visible')
+    })
+
     it('home page blog button is displayed', () => {
       cy.get('[data-cy=home-page-blog-button]')
       .should('be.visible')
     })
 
+    it('blog button navigates to the blog page', () => {
+      cy.get('[data-cy=home-page-blog-button]').click()
+      cy.location('pathname').should('eq', '/blog')
+      cy.go('back')
+    })
+      
+
     it('home page user button is displayed', () => {
       cy.get('[data-cy=home-page-user-button]')
       .should('be.visible')
     })
+
 });
 
 
@@ -25,8 +38,19 @@ describe('blogs page exists', () => {
     cy.visit('http://localhost:3000/blog')
   })
   
-  it('loads the page', () => {
-    cy.contains('Hello blog page!')
+  it('header is displayed', () => {
+    cy.get('[data-cy=blog-page-header]')
+    .should('be.visible')
+  })
+
+  it('body container is displayed', () => {
+    cy.get('[data-cy=blog-page-body]')
+    .should('be.visible')
+  })
+
+  it('should display a blog post', () => {
+    cy.get('[data-cy=blog-container]')
+    .should('be.visible')
   })
 })
 
