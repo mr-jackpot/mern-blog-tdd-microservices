@@ -3,7 +3,9 @@
 import React, { useEffect } from "react";
 import axios from 'axios'
 import './blogs.css'
+import '../../components/SubmitBlog/submit'
 import BlogCard from "../../components/BlogCard/cards";
+import SubmitBlog from "../../components/SubmitBlog/submit";
 
 const BlogPage = () => {
 
@@ -48,10 +50,11 @@ const BlogPage = () => {
     return (  
         <div> 
             <div className="Header" data-cy="blog-page-header">
-                <p1>This is the blogpage header</p1>
+              <p1>This is the blogpage header</p1>
             </div>
             <div className="blog-page-body" data-cy="blog-page-body">
-                {displayBlogs(cardData)}
+              <SubmitBlog />
+              {displayBlogs(cardData)}
             </div>
         </div>
     )

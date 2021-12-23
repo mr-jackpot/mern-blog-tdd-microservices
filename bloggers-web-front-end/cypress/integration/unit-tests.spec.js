@@ -52,5 +52,10 @@ describe('blogs page exists', () => {
     cy.get('[data-cy=blog-container]')
     .should('be.visible')
   })
+
+  it('should have input area for a new blog', () => {
+    cy.get('[data-cy=submit-blog-form]')
+    .should('be.visible')
+  })
 })
 
