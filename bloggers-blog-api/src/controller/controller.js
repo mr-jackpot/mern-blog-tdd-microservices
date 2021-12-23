@@ -16,7 +16,7 @@ const checkDBStatus = (req, res) => {
 
 // Find all blogs in the MongoDB Collection. Return them all back in HTTP response.
 const findAllBlogs = (req, res) => {
-  Blog.find()
+  Blog.find().sort({date: 'desc'})
   .then(dbProduct => {
       res.send(dbProduct)
   })
