@@ -2,3 +2,18 @@
     margin: 25px;
     background-color:goldenrod
 }
+
+.submit-blog-text-container {
+    display: flex;
+    justify-content: center;
+}
+
+.submit-blog-button-container {
+    display: flex;
+    justify-content: center;   
+}
+
+#blog-input-textarea {
+    border-radius: 5px;
+    border: 0;
+}
