@@ -1,0 +1,34 @@
+.submit-blog-container {
+    margin: 25px;
+}
+
+.submit-blog-text-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.submit-blog-button-container {
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+#blog-input-textarea {
+    width: 45vw;
+    height: 15vh;
+    border-radius: 5px;
+    border: 0;
+    resize: none;
+    font-size: medium;
+    font-family: sans-serif
+}
+
+#submit-blog-button {
+    border-radius: 5px;
+    border: 0;
+    background-color:dodgerblue;
+    color:white;
+    width: 80px;
+    height: 20px;
+}

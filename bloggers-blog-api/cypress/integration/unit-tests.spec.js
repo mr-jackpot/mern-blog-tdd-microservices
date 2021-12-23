@@ -14,16 +14,16 @@ describe('Testing the blog READ operation API', () => {
   it('finds all blogs', () => {
     cy.request('/api/blogs').its('body').its('0').should('include', 
       {
-          "_id": "61b336a357fe44a6a5de10ff"
+          "_id": "61c454b45b18ce2867a05adf"
       }
     )
   })
 
   it('finds one blog', () => {
-    cy.request('/api/blogs/61b8cf869313e865a4ecdc02')
+    cy.request('/api/blogs/61c454b45b18ce2867a05adf')
     .then((blog) => {
       expect(blog.status).to.eq(200)
-      expect(blog.body._id).to.eq('61b8cf869313e865a4ecdc02')
+      expect(blog.body._id).to.eq('61c454b45b18ce2867a05adf')
     })
   })
 })
@@ -69,9 +69,9 @@ describe('Testing the blog DELETE operation api', () => {
 describe('Testing the blog UPDATE operation API', () => {
   it('updates the specified record', () => {
     const blogContent = require("crypto").randomBytes(8).toString('hex')
-    cy.request('PUT', '/api/blogs/61b336a357fe44a6a5de10ff',
+    cy.request('PUT', '/api/blogs/61c454b45b18ce2867a05adf',
     {
-      "date": "9999-01-01T00:00:00.000Z",
+      "date": new Date().toISOString(),
       "blog": blogContent
     }).then((blog) => {
         expect(blog.status).to.eq(200)
