@@ -71,7 +71,7 @@ describe('Testing the blog UPDATE operation API', () => {
     const blogContent = require("crypto").randomBytes(8).toString('hex')
     cy.request('PUT', '/api/blogs/61c454b45b18ce2867a05adf',
     {
-      "date": "9999-01-01T00:00:00.000Z",
+      "date": new Date().toISOString(),
       "blog": blogContent
     }).then((blog) => {
         expect(blog.status).to.eq(200)
