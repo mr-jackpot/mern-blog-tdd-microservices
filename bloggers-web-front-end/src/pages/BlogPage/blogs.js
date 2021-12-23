@@ -53,8 +53,11 @@ const BlogPage = () => {
               <p1>This is the blogpage header</p1>
             </div>
             <div className="blog-page-body" data-cy="blog-page-body">
+              
               <SubmitBlog />
+
               {displayBlogs(cardData)}
+
             </div>
         </div>
     )
