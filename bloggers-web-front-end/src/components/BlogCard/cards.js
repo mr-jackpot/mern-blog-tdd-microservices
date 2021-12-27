@@ -10,6 +10,9 @@ const BlogCard = (props) => {
             <div className="container-header">
                 <div className="header-user"> {props.user} </div>
                 <div className="header-date"> {props.date} </div>
+                <div className="header-delete"> 
+                    <button id="delete-post-button"> DELETE </button>
+                </div>
             </div>
             <div className="container-body">
                 <div className="body-blog"> {props.blog} </div>

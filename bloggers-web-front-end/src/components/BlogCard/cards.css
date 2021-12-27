@@ -26,8 +26,13 @@
     padding: 5px;
 }
 
-.container-body {
+.header-delete {
+    margin-left: 5px;
+}
 
+#delete-post-button {
+    color:red;
+    min-height: 100%;
 }
 
 .body-blog {
@@ -35,3 +40,4 @@
     border-width: thin;
     padding: 5px;
 }
+
