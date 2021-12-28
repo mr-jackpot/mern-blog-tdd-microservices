@@ -22,7 +22,8 @@ const BlogPage = () => {
               objArr.push({
                 user: arr.user,
                 date: arr.date,
-                blog: arr.blog
+                blog: arr.blog,
+                id: arr._id
               })
             })
             return setCardData(objArr)
@@ -36,7 +37,8 @@ const BlogPage = () => {
           return render.push(<BlogCard 
             user={x.user} 
             date={x.date} 
-            blog={x.blog} 
+            blog={x.blog}
+            id={x.id} 
             err={x.error}/>) 
         })
     
