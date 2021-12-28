@@ -3,6 +3,14 @@ import './cards.css'
 
 const BlogCard = (props) => {
 
+    const handleClick = (event) => {
+      event.preventDefault()
+      window.location.reload()
+    }
+
+    const deletePost = () => {
+      
+    }
 
     if (props.user !== null) {
     return (
@@ -11,7 +19,7 @@ const BlogCard = (props) => {
                 <div className="header-user"> {props.user} </div>
                 <div className="header-date"> {props.date} </div>
                 <div className="header-delete"> 
-                    <button id="delete-post-button"> DELETE </button>
+                    <button id="delete-post-button" onClick={handleClick}> DELETE </button>
                 </div>
             </div>
             <div className="container-body">

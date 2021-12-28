@@ -33,6 +33,8 @@
 #delete-post-button {
     color:red;
     min-height: 100%;
+    border-radius: 0px;
+ 
 }
 
 .body-blog {
