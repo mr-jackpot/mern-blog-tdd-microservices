@@ -1,3 +1,4 @@
+import axios from "axios";
 import React from "react";
 import './cards.css'
 
@@ -6,10 +7,11 @@ const BlogCard = (props) => {
     const handleClick = (event) => {
       event.preventDefault()
       window.location.reload()
+      deletePost()
     }
 
     const deletePost = () => {
-      
+      axios.delete(`http://localhost:3005/api/blogs/${props.id}`)
     }
 
     if (props.user !== null) {
