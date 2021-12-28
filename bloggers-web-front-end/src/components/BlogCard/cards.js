@@ -21,7 +21,7 @@ const BlogCard = (props) => {
                 <div className="header-user"> {props.user} </div>
                 <div className="header-date"> {props.date} </div>
                 <div className="header-delete"> 
-                    <button id="delete-post-button" onClick={handleClick}> Remove Post </button>
+                    <button id="delete-post-button" onClick={handleClick} data-cy="delete-post-button"> Remove Post </button>
                 </div>
             </div>
             <div className="container-body">

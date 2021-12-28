@@ -59,3 +59,30 @@ describe('blogs page exists', () => {
   })
 })
 
+describe('A user can action create a new post and perform actions on it', () => {
+
+  beforeEach(() => {
+    cy.visit('http://localhost:3000/blog')
+  })
+  
+  it('can create a new post', () => {
+    cy.get('[data-cy=input-blog-textarea]')
+      .type('This is the front end input test')
+    
+    cy.get('[data-cy=submit-blog-button]')
+      .click()
+
+    cy.contains('This is the front end input test')
+  })
+
+  it('can delete the new post', () => {
+    cy.get('[data-cy=delete-post-button]')
+      .first()
+      .click()
+
+    cy.contains('This is the front end input test')
+      .should('not.exist')
+  })
+
+})
+
