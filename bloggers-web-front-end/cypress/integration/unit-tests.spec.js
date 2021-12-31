@@ -75,14 +75,34 @@ describe('A user can action create a new post and perform actions on it', () => 
     cy.contains('This is the front end input test')
   })
 
+  it('can update the new post', () => {
+    cy.get('[data-cy=update-post-button]')
+      .first()
+      .click()
+
+    cy.get('[data-cy=body-blog]')
+      .type('This is the updated post')
+    
+      cy.get('[data-cy=submit-updated-post]')
+        .click()
+
+    cy.contains('This is the updated post')
+
+    cy.contains('This is the front end input test')
+      .should('not.exist')
+
+  })
+
   it('can delete the new post', () => {
     cy.get('[data-cy=delete-post-button]')
       .first()
       .click()
 
-    cy.contains('This is the front end input test')
+    cy.contains('This is the updated post')
       .should('not.exist')
   })
+
+  
 
 })
 

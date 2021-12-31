@@ -14,6 +14,10 @@ const BlogCard = (props) => {
       axios.delete(`http://localhost:3005/api/blogs/${props.id}`)
     }
 
+    const updatePost = () => {
+      
+    }
+
     if (props.user !== null) {
     return (
         <div className="blog-container" data-cy="blog-container">
