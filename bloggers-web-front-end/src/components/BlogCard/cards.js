@@ -12,6 +12,28 @@ const BlogCard = (props) => {
         blog: blog
     }
 
+    const SubmitBlogForm = () => {
+      
+        if (showBlog) {
+            return (
+            <div>
+                <form>
+                    <div>
+                        <textarea id="update-blog-textarea" data-cy="update-blog-textarea" onChange={(b) => setBlog(b.target.value)} value={blog}></textarea>
+                    </div>
+                    <div>
+                        <button id="cancel-post-button" data-cy="cancel-post-button"> Cancel </button>
+                        <button id="submit-post-button" data-cy="submit-post-button" onClick={handleSubmit}> Submit Update </button>
+                    </div>
+                </form>
+            </div>
+            )} else {
+                return (<div>
+                            <button id="update-post-button" data-cy="update-post-button" onClick={handleClick}> Update </button>
+                        </div>)
+        }
+    }
+
     const handleClick = (event) => {
         event.preventDefault()
         setShowBlog(true)
@@ -20,24 +42,6 @@ const BlogCard = (props) => {
     const handleSubmit = (event) => {
         event.preventDefault()
         updatePost()
-    }
-
-    const SubmitBlogForm = () => {
-      
-        if (showBlog) {
-            return (
-            <div>
-                <form>
-                    <textarea onChange={(b) => setBlog(b.target.value)} value={blog}></textarea>
-                    <button id="cancel-post-button"> Cancel </button>
-                    <button id="submit-post-button" onClick={handleSubmit}> Submit Update </button>
-                </form>
-            </div>
-            )} else {
-                return (<div>
-                            <button id="update-post-button" onClick={handleClick}> Update </button>
-                        </div>)
-        }
     }
 
     const deletePost = (event) => {
@@ -54,7 +58,7 @@ const BlogCard = (props) => {
     }
 
     const updatePost = () => {
-        
+
         axios.put(`http://localhost:3005/api/blogs/${props.id}`, bo)
         .then((res) => {
             console.log(res);
@@ -67,30 +71,31 @@ const BlogCard = (props) => {
     }
 
     if (props.user !== null) {
-    return (
-        <div className="blog-container" data-cy="blog-container">
-            <div className="container-header">
-                <div className="header-user"> {props.user} </div>
-                <div className="header-date"> {props.date} </div>
-                <div className="header-delete"> 
-                    <button id="delete-post-button" onClick={deletePost} data-cy="delete-post-button"> Remove</button>
-                </div>
-                <div className="header-update">
-                    <form>
-                        
-                    </form>
-                </div>
-            </div>
-            <div className="container-body">
-                <div className="body-blog"> 
-                    {blog}
-                </div>
-                {SubmitBlogForm()}
-            </div>
-        </div>
-    )}
     
-    return (<div className="blog-card-error">Error. Please check browser console.</div>) 
-}
+        return (
+            <div className="blog-container" data-cy="blog-container">
+                <div className="container-header">
+                    <div className="header-user"> {props.user} </div>
+                    <div className="header-date"> {props.date} </div>
+                    <div className="header-delete"> 
+                        <button id="delete-post-button" onClick={deletePost} data-cy="delete-post-button"> Remove</button>
+                    </div>
+                    <div className="header-update">
+                        <form>
+                            
+                        </form>
+                    </div>
+                </div>
+                <div className="container-body">
+                    <div className="body-blog"> 
+                        {blog}
+                    </div>
+                    {SubmitBlogForm()}
+                </div>
+            </div>
+        )}
+    
+        return (<div className="blog-card-error">Error. Please check browser console.</div>) 
+    }
 
 export default BlogCard;

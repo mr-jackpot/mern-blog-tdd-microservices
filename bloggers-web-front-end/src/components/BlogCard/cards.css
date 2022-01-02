@@ -36,12 +36,48 @@
     background-color:darkred;
     opacity: 80%;
     color: white;
- 
+}
+
+#update-post-button {
+    min-height: 100%;
+    border-radius: 5px;
+    background-color:orange;
+    opacity: 80%;
+    color: black;
+}
+
+#submit-post-button {
+    min-height: 100%;
+    border-radius: 5px;
+    background-color:seagreen;
+    opacity: 80%;
+    color: white;
+}
+
+#cancel-post-button {
+    min-height: 100%;
+    border-radius: 5px;
+    background-color:tomato;
+    opacity: 80%;
+    color: white;
 }
 
 .body-blog {
     border-style: solid;
     border-width: thin;
     padding: 5px;
+}
+
+#update-blog-textarea {
+    border-radius: 5px;
+    border: 0;
+    resize: none;
+    font-size: medium;
+    font-family: sans-serif;
+    padding: 5px;
+    margin-top: 5px;
+    width: 100%;
+    height: 100%; 
+    box-sizing: border-box;
 }
 

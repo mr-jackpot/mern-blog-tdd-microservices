@@ -80,17 +80,38 @@ describe('A user can action create a new post and perform actions on it', () => 
       .first()
       .click()
 
-    cy.get('[data-cy=body-blog]')
-      .type('This is the updated post')
+    cy.get('[data-cy=update-blog-textarea]')
+      .clear()
+      .type("This is the updated post")
     
-      cy.get('[data-cy=submit-updated-post]')
-        .click()
+    cy.get('[data-cy=submit-post-button]')
+      .click()
 
     cy.contains('This is the updated post')
 
     cy.contains('This is the front end input test')
       .should('not.exist')
 
+  })
+
+  it('can cancel a post update', () => {
+    
+    cy.get('[data-cy=update-post-button]')
+      .first()
+      .click()
+    
+      cy.get('[data-cy=update-blog-textarea]')
+      .clear()
+      .type("I am cancelling this post")
+
+      cy.get('[data-cy=cancel-post-button]')
+      .first()
+      .click()
+
+      cy.contains('I am cancelling this post')
+      .should('not.exist')
+
+      cy.contains('This is the updated post')
   })
 
   it('can delete the new post', () => {
@@ -101,8 +122,6 @@ describe('A user can action create a new post and perform actions on it', () => 
     cy.contains('This is the updated post')
       .should('not.exist')
   })
-
-  
 
 })
 
