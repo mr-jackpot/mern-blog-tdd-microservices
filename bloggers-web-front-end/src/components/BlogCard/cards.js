@@ -17,18 +17,26 @@ const BlogCard = (props) => {
         setShowBlog(true)
     }
 
+    const handleSubmit = (event) => {
+        event.preventDefault()
+        updatePost()
+    }
+
     const SubmitBlogForm = () => {
       
-        if (!showBlog) {
+        if (showBlog) {
             return (
             <div>
                 <form>
                     <textarea onChange={(b) => setBlog(b.target.value)} value={blog}></textarea>
-                    <submit type="submit" value="Post Blog"></submit>
+                    <button id="cancel-post-button"> Cancel </button>
+                    <button id="submit-post-button" onClick={handleSubmit}> Submit Update </button>
                 </form>
             </div>
             )} else {
-                return (<div>RETURN FIRING</div>)
+                return (<div>
+                            <button id="update-post-button" onClick={handleClick}> Update </button>
+                        </div>)
         }
     }
 
@@ -45,8 +53,8 @@ const BlogCard = (props) => {
         window.location.reload()
     }
 
-    const updatePost = (event) => {
-        event.preventDefault()
+    const updatePost = () => {
+        
         axios.put(`http://localhost:3005/api/blogs/${props.id}`, bo)
         .then((res) => {
             console.log(res);
@@ -69,7 +77,7 @@ const BlogCard = (props) => {
                 </div>
                 <div className="header-update">
                     <form>
-                        <button id="update-post-button" onClick={handleClick}> Update </button>
+                        
                     </form>
                 </div>
             </div>
@@ -77,7 +85,7 @@ const BlogCard = (props) => {
                 <div className="body-blog"> 
                     {blog}
                 </div>
-                <SubmitBlogForm />
+                {SubmitBlogForm()}
             </div>
         </div>
     )}
