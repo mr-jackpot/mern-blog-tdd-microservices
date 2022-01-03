@@ -2,6 +2,8 @@ import axios from "axios";
 import React from "react";
 import './cards.css'
 import moment from "moment"
+import { BiUserCircle } from "react-icons/bi";
+import { AiFillDelete } from "react-icons/ai";
 
 const BlogCard = (props) => {
 
@@ -76,10 +78,10 @@ const BlogCard = (props) => {
         return (
             <div className="blog-container" data-cy="blog-container">
                 <div className="container-header">
-                    <div className="header-user"> {props.user} </div>
+                    <div className="header-user"> <BiUserCircle size={18} /> {props.user} </div>
                     <div className="header-date"> {moment(props.date).utc().format('DD/MM/YYYY HH:MM:ss')} </div>
                     <div className="header-delete"> 
-                        <button id="delete-post-button" onClick={deletePost} data-cy="delete-post-button"> Remove</button>
+                        <button id="delete-post-button" onClick={deletePost} data-cy="delete-post-button"> <AiFillDelete size={15} /> Remove</button>
                     </div>
                     <div className="header-update">
                         <form>
