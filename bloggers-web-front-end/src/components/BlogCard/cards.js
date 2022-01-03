@@ -1,6 +1,7 @@
 import axios from "axios";
 import React from "react";
 import './cards.css'
+import moment from "moment"
 
 const BlogCard = (props) => {
 
@@ -76,7 +77,7 @@ const BlogCard = (props) => {
             <div className="blog-container" data-cy="blog-container">
                 <div className="container-header">
                     <div className="header-user"> {props.user} </div>
-                    <div className="header-date"> {props.date} </div>
+                    <div className="header-date"> {moment(props.date).utc().format('DD/MM/YYYY HH:MM:ss')} </div>
                     <div className="header-delete"> 
                         <button id="delete-post-button" onClick={deletePost} data-cy="delete-post-button"> Remove</button>
                     </div>
