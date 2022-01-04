@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 const User = require('../models/Users')
 
  const db = `mongodb+srv://jordt-user:${process.env.DB_PASSWORD}@cluster0.dyqmu.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
- mongoose.connect(db)
+ mongoose.connect(db, { useNewUrlParser: true })
 
  const checkDBStatus = (req, res) => {
      res.send({status: mongoose.connection.readyState})
@@ -31,4 +31,21 @@ const User = require('../models/Users')
   });
 }
 
- module.exports = {checkDBStatus, findAllUsers, findOneUser}
+const createOneUser = (req, res) => {
+  Blog.create(
+    {
+      user: req.body.user,
+      dateCreated: req.body.dateCreated,
+      location: req.body.location,
+      avatarUrl: req.body.imageUrl  
+    }
+  )
+  .then( dbProduct => {
+    res.json(dbProduct)
+  })
+  .catch(err => {
+    res.json(err)
+  });
+}
+
+ module.exports = {checkDBStatus, findAllUsers, findOneUser, createOneUser}

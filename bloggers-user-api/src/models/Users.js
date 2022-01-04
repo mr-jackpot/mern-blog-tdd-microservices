@@ -13,6 +13,10 @@ const UserSchema = new Schema({
     location: {
         type: String,
         required: false,
+    },
+    avatarUrl: {
+        type: String,
+        required: false
     }
 })
 
