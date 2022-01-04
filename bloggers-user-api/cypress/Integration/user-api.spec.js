@@ -2,7 +2,7 @@
 
 describe('The USER API is live on port 3010', () => {
     it('exists', () => {
-      cy.request('/api/users').its('body').should('include', 'Hello from user api!')
+      cy.request('/').its('body').should('include', {"status":1})
     })
   
     it('has a db that returns a success code', () => {
@@ -15,16 +15,16 @@ describe('READ operations can be performed with the USER API', () => {
   it('finds all users', () => {
     cy.request('/api/users').its('body').its('0').should('include', 
       {
-          "_id": "<TODO ID>"
+          "_id": "61d472c25492180b79f93ff6"
       }
     )
   })
 
   it('finds one user', () => {
-    cy.request('/api/users/<TODO ID>')
+    cy.request('/api/users/61d472c25492180b79f93ff6')
     .then((user) => {
       expect(user.status).to.eq(200)
-      expect(user.body._id).to.eq('<TODO ID>')
+      expect(user.body._id).to.eq('61d472c25492180b79f93ff6')
     })
   })
 
