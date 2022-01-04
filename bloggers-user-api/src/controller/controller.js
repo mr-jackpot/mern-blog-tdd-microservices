@@ -32,12 +32,12 @@ const User = require('../models/Users')
 }
 
 const createOneUser = (req, res) => {
-  Blog.create(
+  User.create(
     {
       user: req.body.user,
       dateCreated: req.body.dateCreated,
       location: req.body.location,
-      avatarUrl: req.body.imageUrl  
+      avatarUrl: req.body.avatarUrl  
     }
   )
   .then( dbProduct => {

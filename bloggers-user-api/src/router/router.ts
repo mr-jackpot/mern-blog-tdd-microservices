@@ -10,8 +10,8 @@ router.get('/api/db', controller.checkDBStatus)
 
 router.get('/api/users', controller.findAllUsers)
 
-router.get('/api/users/:id', (req, res) => {
-  res.send('find one router firing')
-})
-  
+router.get('/api/users/:id', controller.findOneUser)
+
+router.post('/api/users', controller.createOneUser)
+
 module.exports = router;
