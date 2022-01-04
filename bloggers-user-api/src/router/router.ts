@@ -8,9 +8,10 @@ router.get('/', (req, res) => {
 
 router.get('/api/db', controller.checkDBStatus)
 
-router.get(`/api/user`, (req, res) => {
-      res.send("Hello from user api!")
-    } 
-  )
-  
+router.get('/api/users', controller.findAllUsers)
+
+router.get('/api/users/:id', controller.findOneUser)
+
+router.post('/api/users', controller.createOneUser)
+
 module.exports = router;

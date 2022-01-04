@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
@@ -13,6 +13,10 @@ const UserSchema = new Schema({
     location: {
         type: String,
         required: false,
+    },
+    avatarUrl: {
+        type: String,
+        required: false
     }
 })
 
