@@ -48,6 +48,7 @@ const logOutUser = (req, res) => {
     client_id: process.env.AUTH0_CLIENT_ID,
     returnTo: returnTo
   });
+  
   logoutURL.search = searchString;
 
   res.redirect(logoutURL);

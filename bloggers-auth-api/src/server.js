@@ -17,10 +17,11 @@ const session = {
 };
 
 app.use(expressSession(session));
-app.use('/', router);
 
 passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
+
+app.use('/', router);
 
 app.listen(port, () => {console.log(`Example app listening at http://localhost:${port} 🚀`)})
