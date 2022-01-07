@@ -10,6 +10,7 @@ A web application that users can read blogs on and login as a user to post/delet
 - Cypress
 - TypeScript
 - Docker
+- Auth0
 
 ## Definition Of Done
 
