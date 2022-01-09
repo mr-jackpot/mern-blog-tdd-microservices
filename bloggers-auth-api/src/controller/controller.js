@@ -4,26 +4,26 @@ const serverStatus = (req, res) => {
   res.send({status: 1})
 }
 
-const validateUser = (req, res) => {
-  res.redirect("/")
-}
-
 const authenticateUser = (req, res, next) => {
   passport.authenticate("auth0", (err, user, info) => {
     if (err) {
-        return next(err)
+      console.log("line 10 FIRED!!! User authenticated.")
+      return next(err)
     }
     if (!user) {
-        return res.redirect('/login')
+      console.log("line 14 FIRED!!! User authenticated.")
+      return res.redirect('/login')
     }
     req.logIn(user, (err) => {
-        if (err) {
-            return next(err)
-        }
-        const returnTo = req.session.returnTo
-        delete req.session.returnTo
-        res.redirect(returnTo || '/')
+      if (err) {
+          return next(err)
+      }
+      console.log("line 19 FIRED!!! User authenticated.")
+      const returnTo = req.session.returnTo
+      delete req.session.returnTo
+      res.redirect(returnTo || '/')
     })
+    
 })(req, res, next)
 }
 
@@ -54,4 +54,4 @@ const logOutUser = (req, res) => {
   res.redirect(logoutURL);
 }
 
-module.exports = {serverStatus, validateUser, authenticateUser, logOutUser}
+module.exports = {serverStatus, authenticateUser, logOutUser}

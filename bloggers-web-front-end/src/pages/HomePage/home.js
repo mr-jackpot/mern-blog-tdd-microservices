@@ -29,7 +29,7 @@ const HomePage = () => {
                     id="user-button">Search all users</Button>
             </div>
             <div id="login-container">
-                <Button href="http://localhost:3015/login" id="homepage-login-btn" size="lg"> Login </Button>
+                <Button variant="primary" href="http://localhost:3015/login" id="homepage-login-btn" size="lg"> Login </Button>
             </div>
         </div>
     )
