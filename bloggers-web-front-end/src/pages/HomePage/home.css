@@ -32,3 +32,13 @@
     order: 1;
     flex-grow: 1;
 }
+
+#login-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#homepage-login-btn {
+    text-align: center;
+}
