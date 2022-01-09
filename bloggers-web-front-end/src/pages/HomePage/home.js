@@ -28,6 +28,9 @@ const HomePage = () => {
                 <Button variant="btn btn-success" data-cy="home-page-user-button" className="selector-button" 
                     id="user-button">Search all users</Button>
             </div>
+            <div id="login-container">
+                <Button variant="primary" href="http://localhost:3015/login" id="homepage-login-btn" size="lg"> Login </Button>
+            </div>
         </div>
     )
 }

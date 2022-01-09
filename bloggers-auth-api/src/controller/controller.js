@@ -4,27 +4,25 @@ const serverStatus = (req, res) => {
   res.send({status: 1})
 }
 
-const validateUser = (req, res) => {
-  res.redirect("/")
-}
-
 const authenticateUser = (req, res, next) => {
   passport.authenticate("auth0", (err, user, info) => {
     if (err) {
-        return next(err)
+      return next(err)
     }
     if (!user) {
-        return res.redirect('/login')
+      return res.redirect('/login')
     }
     req.logIn(user, (err) => {
-        if (err) {
-            return next(err)
-        }
-        const returnTo = req.session.returnTo
-        delete req.session.returnTo
-        res.redirect(returnTo || '/')
+      if (err) {
+          return next(err)
+      }
+      // const returnTo = req.session.returnTo <-- this is FUBAR. returnTo undefined
+      returnTo = 'http://localhost:3000/blog'
+      delete req.session.returnTo
+      console.log(`User successfully authenticated.`)
+      res.redirect(returnTo || '/')
     })
-})(req, res, next)
+}) (req, res, next)  
 }
 
 const logOutUser = (req, res) => {
@@ -48,10 +46,10 @@ const logOutUser = (req, res) => {
     client_id: process.env.AUTH0_CLIENT_ID,
     returnTo: returnTo
   });
-  
+
   logoutURL.search = searchString;
 
   res.redirect(logoutURL);
 }
 
-module.exports = {serverStatus, validateUser, authenticateUser, logOutUser}
+module.exports = {serverStatus, authenticateUser, logOutUser}
