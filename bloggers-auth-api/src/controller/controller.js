@@ -16,9 +16,10 @@ const authenticateUser = (req, res, next) => {
       if (err) {
           return next(err)
       }
-      const returnTo = req.session.returnTo
-      console.log(req.session)
+      // const returnTo = req.session.returnTo <-- this is FUBAR. returnTo undefined
+      returnTo = 'http://localhost:3000/blog'
       delete req.session.returnTo
+      console.log(`User successfully authenticated.`)
       res.redirect(returnTo || '/')
     })
 }) (req, res, next)  
