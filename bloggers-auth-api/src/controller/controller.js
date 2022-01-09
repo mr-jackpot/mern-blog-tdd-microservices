@@ -7,24 +7,21 @@ const serverStatus = (req, res) => {
 const authenticateUser = (req, res, next) => {
   passport.authenticate("auth0", (err, user, info) => {
     if (err) {
-      console.log("line 10 FIRED!!! User authenticated.")
       return next(err)
     }
     if (!user) {
-      console.log("line 14 FIRED!!! User authenticated.")
       return res.redirect('/login')
     }
     req.logIn(user, (err) => {
       if (err) {
           return next(err)
       }
-      console.log("line 19 FIRED!!! User authenticated.")
       const returnTo = req.session.returnTo
+      console.log(req.session)
       delete req.session.returnTo
       res.redirect(returnTo || '/')
     })
-    
-})(req, res, next)
+}) (req, res, next)  
 }
 
 const logOutUser = (req, res) => {

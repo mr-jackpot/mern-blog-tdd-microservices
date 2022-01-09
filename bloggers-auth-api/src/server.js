@@ -42,10 +42,10 @@ passport.use(strategy);
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req, res, next) => {
-  res.locals.isAuthenticated = req.isAuthenticated();
-  next();
-});
+// app.use((req, res, next) => {
+//   res.locals.isAuthenticated = req.isAuthenticated();
+//   next();
+// });
 
 app.use('/', router);
 
