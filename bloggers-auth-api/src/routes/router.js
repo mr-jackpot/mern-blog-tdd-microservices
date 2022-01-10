@@ -11,4 +11,6 @@ router.get('/callback', controller.authenticateUser)
 
 router.get('/logout', controller.logOutUser)
 
+router.get('/secure', controller.secured)
+
 module.exports = router;

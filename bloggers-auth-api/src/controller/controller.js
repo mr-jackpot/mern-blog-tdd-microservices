@@ -52,4 +52,12 @@ const logOutUser = (req, res) => {
   res.redirect(logoutURL);
 }
 
-module.exports = {serverStatus, authenticateUser, logOutUser}
+const secured = (req, res, next) => {
+  if (req.session.user) {
+    res.send({secured: 1})
+    return next();
+  }
+  res.send("no authorized");
+};
+
+module.exports = {serverStatus, authenticateUser, logOutUser, secured}

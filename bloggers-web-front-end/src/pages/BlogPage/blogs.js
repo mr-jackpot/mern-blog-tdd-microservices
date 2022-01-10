@@ -7,9 +7,10 @@ import '../../components/SubmitBlog/submit'
 import BlogCard from "../../components/BlogCard/cards";
 import SubmitBlog from "../../components/SubmitBlog/submit";
 
-const BlogPage = () => {
+const BlogPage = () => {    
 
     const [cardData, setCardData] = React.useState([])
+    const [auth, setAuth] = React.useState(false)
     
     const load = (err) => {
         axios
@@ -49,7 +50,16 @@ const BlogPage = () => {
       load();
     })
     
-    return (  
+    axios.get('http://localhost:3015/secure')
+    .then((res) => {
+      if (res.data.secured !== 1)
+        console.log("not authenticated")
+      if (res.data.secured === 1)
+        setAuth(true)
+    }) 
+   
+    if (auth === true) {
+      return (  
         <div> 
             <div className="Header" data-cy="blog-page-header">
               <p1>This is the blogpage header</p1>
@@ -62,7 +72,12 @@ const BlogPage = () => {
 
             </div>
         </div>
-    )
+    ) }
+    else {
+      return (
+        <div> NOT AUTHORIZED</div>
+      )
+    }
 }
 
 export default BlogPage;
