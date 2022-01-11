@@ -57,6 +57,8 @@ const BlogPage = () => {
       load();
     })
     
+    // Adding this axios.get call to the auth API will ensure that only 
+    // authorized users can see the page.
     axios.get('http://localhost:3015/secure', config)
     .then((res) => {
       if (res.data.secured !== 1)
@@ -82,7 +84,9 @@ const BlogPage = () => {
     ) }
     else {
       return (
-        <div> NOT AUTHORIZED</div>
+        <div className="blog-page-body" data-cy="blog-page-body">
+            <p1>USER IS NOT AUTHORIZED TO VIEW THIS CONTENT</p1>
+        </div>
       )
     }
 }

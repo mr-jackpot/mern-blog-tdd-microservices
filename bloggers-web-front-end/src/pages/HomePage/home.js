@@ -29,7 +29,8 @@ const HomePage = () => {
                     id="user-button">Search all users</Button>
             </div>
             <div id="login-container">
-                <Button variant="primary" href="http://localhost:3015/login" id="homepage-login-btn" size="lg"> Login </Button>
+                <a href="http://localhost:3015/login"><button>Login</button></a>
+                <a href="http://localhost:3015/logout"><button>Logout</button></a>
             </div>
         </div>
     )

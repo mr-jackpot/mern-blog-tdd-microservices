@@ -17,7 +17,7 @@ const authenticateUser = (req, res, next) => {
           return next(err)
       }
       // const returnTo = req.session.returnTo <-- this is FUBAR. returnTo undefined
-      returnTo = 'http://localhost:3000/blog'
+      returnTo = 'http://localhost:3000/'
       delete req.session.returnTo
       console.log(`User successfully authenticated.`)
       res.redirect(returnTo || '/')
@@ -49,7 +49,9 @@ const logOutUser = (req, res) => {
 
   logoutURL.search = searchString;
 
-  res.redirect(logoutURL);
+  // res.redirect(logoutURL);
+  res.redirect('http://localhost:3000/');
+  
 }
 
 const secured = (req, res, next) => {
