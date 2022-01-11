@@ -9,6 +9,8 @@ import "./home.css"
 
 const HomePage = () => {
 
+    const [isLoggedIn, setLoggedIn] = React.useState(false)
+
     const navigate = useNavigate();
 
     const routeChange = () =>{ 
@@ -19,7 +21,14 @@ const HomePage = () => {
     return (
         <div> 
             <div className="Header" data-cy="home-page-header">
-                <p1>This is the homepage header</p1>
+                <p1>The ULTIMATE Blog Site</p1>
+            </div>
+            <div id="greeting-message-container">
+                {isLoggedIn ? (
+                    <h1> Successfully logged in!</h1>
+                ): (
+                    <h1></h1>
+                )}
             </div>
             <div className="Body" data-cy="home-page-body">
                 <Button variant="btn btn-success" data-cy="home-page-blog-button" className="selector-button" 
@@ -29,7 +38,8 @@ const HomePage = () => {
                     id="user-button">Search all users</Button>
             </div>
             <div id="login-container">
-                <Button variant="primary" href="http://localhost:3015/login" id="homepage-login-btn" size="lg"> Login </Button>
+                <a href="http://localhost:3015/login"><button id="loginButton">Login</button></a>
+                <a href="http://localhost:3015/logout"><button id="logoutButton">Logout</button></a>
             </div>
         </div>
     )

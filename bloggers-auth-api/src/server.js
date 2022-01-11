@@ -4,6 +4,7 @@ const port = 3015
 const router = require('./routes/router')
 const expressSession = require("express-session");
 const Auth0Strategy = require("passport-auth0");
+const cors = require("cors");
 
 const passport = require("passport");
 
@@ -17,6 +18,11 @@ const session = {
 };
 
 app.use(expressSession(session));
+
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+
+app.use(express.urlencoded({extended: true,}));
+app.use(express.json());
 
 const strategy = new Auth0Strategy(
     {

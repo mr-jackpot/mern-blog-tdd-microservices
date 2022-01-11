@@ -37,8 +37,21 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
 }
 
-#homepage-login-btn {
-    text-align: center;
+#loginButton {
+    background-color:green;
+    opacity: 80%;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: large;
+}
+
+#logoutButton {
+    background-color:red;
+    opacity: 80%;
+    margin: 5px;
+    border-radius: 5px;
+    font-size: large;
 }
