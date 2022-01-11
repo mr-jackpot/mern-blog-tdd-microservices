@@ -53,11 +53,11 @@ const logOutUser = (req, res) => {
 }
 
 const secured = (req, res, next) => {
-  if (req.session.user) {
+  if (req.user) {
     res.send({secured: 1})
     return next();
   }
-  res.send("no authorized");
+  res.send({secured: 0});
 };
 
 module.exports = {serverStatus, authenticateUser, logOutUser, secured}

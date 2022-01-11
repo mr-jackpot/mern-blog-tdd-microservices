@@ -19,10 +19,8 @@ const session = {
 
 app.use(expressSession(session));
 
-app.use(cors({
-  origin: '*',
-  credentials: true
-}))
+app.use(cors({credentials: true, origin: 'http://localhost:3000'}));
+
 app.use(express.urlencoded({extended: true,}));
 app.use(express.json());
 

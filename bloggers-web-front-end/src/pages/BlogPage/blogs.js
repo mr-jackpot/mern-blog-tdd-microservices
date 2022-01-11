@@ -7,10 +7,17 @@ import '../../components/SubmitBlog/submit'
 import BlogCard from "../../components/BlogCard/cards";
 import SubmitBlog from "../../components/SubmitBlog/submit";
 
-const BlogPage = () => {    
+const BlogPage = () => {   
 
     const [cardData, setCardData] = React.useState([])
     const [auth, setAuth] = React.useState(false)
+
+    const config = {
+      withCredentials: true,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
     
     const load = (err) => {
         axios
@@ -50,7 +57,7 @@ const BlogPage = () => {
       load();
     })
     
-    axios.get('http://localhost:3015/secure')
+    axios.get('http://localhost:3015/secure', config)
     .then((res) => {
       if (res.data.secured !== 1)
         console.log("not authenticated")
