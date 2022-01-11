@@ -71,7 +71,7 @@ const BlogPage = () => {
       return (  
         <div> 
             <div className="Header" data-cy="blog-page-header">
-              <p1>This is the blogpage header</p1>
+              <p1>The ULTIMATE Blog Site</p1>
             </div>
             <div className="blog-page-body" data-cy="blog-page-body">
               
