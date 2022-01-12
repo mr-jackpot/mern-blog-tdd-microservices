@@ -59,14 +59,17 @@ const BlogPage = () => {
     
     // Adding this axios.get call to the auth API will ensure that only 
     // authorized users can see the page.
-    axios.get('http://localhost:3015/secure', config)
-    .then((res) => {
+    
+    useEffect(() => {
+      axios.get('http://localhost:3015/secure', config)
+      .then((res) => {
       if (res.data.secured !== 1)
         console.log("not authenticated")
       if (res.data.secured === 1)
         setAuth(true)
-    }) 
-   
+      }) 
+    }, [])
+    
     if (auth === true) {
       return (  
         <div> 
